@@ -23,7 +23,9 @@ https://www.consul.io/docs/platform/k8s
 Consul on Kubernetes CLI Reference:
 https://www.consul.io/docs/k8s/k8s-cli
 </code>
-
+</pre>
+/tmp/consul.yaml
+<pre>
 <code>
   connectInject:
   enabled: true
