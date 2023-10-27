@@ -1,7 +1,7 @@
 # 설치
 <pre>
 <code>
-helm install consul hashicorp/consul --set global-name=consul --create-namespace -n consul
+helm install -f /tmp/consul.yaml consul hashicorp/consul --set global.name=consul --create-namespace --namespace consul --debug
 NAME: consul
 LAST DEPLOYED: Thu Oct 26 00:41:55 2023
 NAMESPACE: consul
@@ -24,4 +24,17 @@ Consul on Kubernetes CLI Reference:
 https://www.consul.io/docs/k8s/k8s-cli
 </code>
 
+<code>
+  connectInject:
+  enabled: true
+  default: true
+  namespaceSelector: |
+    matchLabels:
+      connect-inject: enabled
+  cni:
+    enabled: true
+    logLevel: info
+    cniBinDir: "/opt/cni/bin"
+    cniNetDir: "/etc/cni/net.d"
+</code>
 </pre>
