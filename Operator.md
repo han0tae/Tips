@@ -1,3 +1,4 @@
+<code>
 type DnsOpsSpec struct {
 	PowerDNSConfig 		string 	'json:"powerdnsConfig"'
 	RecursorConfig 		string 	'json:"recursorConfig"'
@@ -363,3 +364,4 @@ func initializeDatabase(ctx context.Context, dbhost, dbport, dbUser, dbPassword,
 	}
 	return nil
 }
+</code>
