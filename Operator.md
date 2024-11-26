@@ -1,3 +1,4 @@
+<pre>
 <code>
 type DnsOpsSpec struct {
 	PowerDNSConfig 		string 	'json:"powerdnsConfig"'
@@ -365,3 +366,4 @@ func initializeDatabase(ctx context.Context, dbhost, dbport, dbUser, dbPassword,
 	return nil
 }
 </code>
+</pre>
