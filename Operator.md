@@ -103,7 +103,7 @@ func (r *DnsOpsReconciler) Reconcile(stx context.Context, req ctrl.Request) (ctr
 }
 	
 	
-func (r *DnsOpsReconcile) createPowerDNSDeployment(ctx context.Context, *dnsv1.DnsOps) error{
+func (r *DnsOpsReconciler) createPowerDNSDeployment(ctx context.Context, *dnsv1.DnsOps) error{
 	for i := 0; i < dnsOps.Spec.PowerDNSReplica; i++ {
 		deployment := &appsv1.Deployment{
 			ObjectMeta: metav1.ObjectMeta{
@@ -337,7 +337,7 @@ func (r *DnsOpsReconciler) rollbackService(ctx context.Context, namespace, servi
 }
 
 func initializeDatabase(ctx context.Context, dbhost, dbport, dbUser, dbPassword, dbName, sqlScriptPath string) error {
-	dsn := fmt.Sprintf(%a:%a@tcp(%s:%s)/", dbUser, dbPassword, dbHost, dbPort)
+	dsn := fmt.Sprintf("%a:%a@tcp(%s:%s)/", dbUser, dbPassword, dbHost, dbPort)
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return fmt.Errorf("failed to connect to MariaDB: %w", err)
@@ -346,7 +346,7 @@ func initializeDatabase(ctx context.Context, dbhost, dbport, dbUser, dbPassword,
 	
 	createDBQuery := fmt.Sprintf("CREATE DATABASE IF NOT EXISTS %s;", dbName)
 	if _, err := db.ExceContext(ctx, createDBQuery); err != nil {
-		return fmt.Errorf("failed to create database: %w, err)
+		return fmt.Errorf("failed to create database: %w", err)
 	}
 	useDBQuery := fmt.Sprintf("ISE %s;", dbName)
 	
